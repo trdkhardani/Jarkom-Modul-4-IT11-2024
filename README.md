@@ -661,6 +661,8 @@ Berikut adalah hasil dari pembagian `IP` yang telah kami peroleh berdasarkan has
   ```
 ### Testing
 
+https://github.com/trdkhardani/Jarkom-Modul-4-IT11-2024/assets/115559151/0e26743b-7008-4a9d-89d4-8191fcb4cbc7
+
 ## CIDR
 
 ### Penggabungan IP
