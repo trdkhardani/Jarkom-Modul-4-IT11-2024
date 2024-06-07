@@ -616,6 +616,7 @@ Berikut adalah hasil dari pembagian `IP` yang telah kami peroleh berdasarkan has
   ```
 - KALIMANTAN
   ```
+  route add -net 10.69.18.0 netmask 255.255.255.0 gw 10.69.21.194
   route add -net 10.69.21.196 netmask 255.255.255.252 gw 10.69.21.194
   route add -net 10.69.16.0 netmask 255.255.254.0 gw 10.69.21.194
   route add -net 10.69.21.200 netmask 255.255.255.252 gw 10.69.21.194
