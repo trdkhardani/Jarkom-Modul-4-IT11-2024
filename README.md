@@ -7,23 +7,69 @@
 | 5027221008 | Jeany Aurellia Putri Dewati |
 
 ## Daftar isi
-- [Implementasi](#implementasi)
-- [Topologi](#topologi)
-  - [Topologi GNS3 VLSM](#topologi-gns3-vlsm)
-  - [Topologi PKT CIDR](#topologi-pkt-cidr)
-- [Prefix IP](#prefix-ip)
-- [Rute](#rute)
-- [VLSM](#vlsm)
-  - [Tree](#tree)
-  - [Pembagian IP](#pembagian-ip)
-  - [Konfigurasi Network](#konfigurasi-network)
-  - [Routing](#routing)
-  - [Testing](#testing)
-- [CIDR](#cidr)
-  - [Penggabungan IP](#penggabungan-ip)
-  - [Tree](#tree)
-  - [Pembagian IP](#pembagian-ip)
-  - [Testing](#testing)
+- [Jarkom-Modul-4-IT11-2024](#jarkom-modul-4-it11-2024)
+  - [Kelompok IT11](#kelompok-it11)
+  - [Daftar isi](#daftar-isi)
+  - [Implementasi](#implementasi)
+  - [Topologi](#topologi)
+    - [Topologi GNS3 VLSM](#topologi-gns3-vlsm)
+    - [Topologi PKT CIDR](#topologi-pkt-cidr)
+  - [Prefix IP](#prefix-ip)
+  - [Rute](#rute)
+  - [VLSM](#vlsm)
+    - [Tree](#tree)
+    - [Pembagian IP](#pembagian-ip)
+    - [Konfigurasi Network](#konfigurasi-network)
+    - [Routing](#routing)
+    - [Testing](#testing)
+  - [CIDR](#cidr)
+    - [Penggabungan IP](#penggabungan-ip)
+    - [Tree](#tree-1)
+    - [Pembagian IP](#pembagian-ip-1)
+    - [Konfigurasi Network](#konfigurasi-network-1)
+      - [A1](#a1)
+      - [A2](#a2)
+      - [A3](#a3)
+      - [A4](#a4)
+      - [A5](#a5)
+      - [A6](#a6)
+      - [A7](#a7)
+      - [A8](#a8)
+      - [A9](#a9)
+      - [A10](#a10)
+      - [A11](#a11)
+      - [A12](#a12)
+      - [A13](#a13)
+      - [A14](#a14)
+      - [A15](#a15)
+      - [A16](#a16)
+      - [A17](#a17)
+      - [A18](#a18)
+      - [A19](#a19)
+      - [A20](#a20)
+      - [A21](#a21)
+    - [Routing](#routing-1)
+      - [A1](#a1-1)
+      - [A2 \& A3](#a2--a3)
+      - [A4 \& A5](#a4--a5)
+      - [A6](#a6-1)
+      - [A7](#a7-1)
+      - [A9 \& A10](#a9--a10)
+      - [A11 \& A12](#a11--a12)
+      - [A13](#a13-1)
+      - [A14](#a14-1)
+      - [A15](#a15-1)
+      - [A17](#a17-1)
+      - [A18](#a18-1)
+      - [A19](#a19-1)
+      - [A20](#a20-1)
+      - [A21](#a21-1)
+    - [Testing](#testing-1)
+      - [Client-Client](#client-client)
+      - [Router-Client (vice versa)](#router-client-vice-versa)
+      - [Router-Router](#router-router)
+      - [Server-Client (vice versa)](#server-client-vice-versa)
+      - [Server-Server](#server-server)
  
 ## Implementasi
 Kelompok kamu mengimplementasikan `VLSM` menggunakan `GNS3` dan `CIDR` dengan menggunakan `Cisco`
@@ -34,10 +80,10 @@ Kelompok kamu mengimplementasikan `VLSM` menggunakan `GNS3` dan `CIDR` dengan me
 
 
 ### Topologi PKT CIDR
-
+![image](/images/topologi-cidr.png)
 
 ## Prefix IP
-Kelompok kami menggunakan prefik IP `10.69`
+Kelompok kami menggunakan prefix IP `10.69`
 ## Rute
 Hasil dari `rute` yang kami dapatkan adalah sebagai berikut
 ![image](https://github.com/trdkhardani/Jarkom-Modul-4-IT11-2024/assets/115559151/c36f8183-cf36-41d5-badd-f301428d75cf)
@@ -667,9 +713,937 @@ https://github.com/trdkhardani/Jarkom-Modul-4-IT11-2024/assets/115559151/0e26743
 ## CIDR
 
 ### Penggabungan IP
+Berikut merupakan hasil `penggabungan` subnet yang telah kami lakukan
+
+![image](/images/penggabungan-cidr_1.png)
+
+![image](/images/penggabungan-cidr_2.png)
+
+![image](/images/penggabungan-cidr_3.png)
 
 ### Tree
+Berikut merupakan hasil `pemecahan` subnet besar yang dibentuk menjadi `jaringan` yang lebih kecil
+
+![image](/images/tree-cidr.png)
 
 ### Pembagian IP
+Berikut adalah hasil dari pembagian `IP` yang telah kami peroleh berdasarkan hasil `pemecahan` sebelumnya
+
+![image](/images/pembagian-cidr.png)
+
+### Konfigurasi Network
+**Note: Setiap setelah melakukan konfigurasi, jangan lupa menghidupkan port (khusus Router).**
+
+![image](/images/turn-on-port.png)
+
+#### A1
+JAWA (Router)
+```
+Fa1/1
+IPv4 Address: 10.69.196.33 
+Subnet Mask: 255.255.255.252
+```
+
+SUMATERA (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.196.34
+Subnet Mask: 255.255.255.252
+```
+
+#### A2
+SUMATERA (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.67.1
+Subnet Mask: 255.255.255.252
+```
+
+LAMPUNG (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.67.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A3
+LAMPUNG (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.66.1
+Subnet Mask: 255.255.255.0
+```
+
+Sebuku (Client)
+```
+Fa0
+IPv4 Address: 10.69.66.2
+Gateway: 10.69.66.1
+Subnet Mask: 255.255.255.0
+```
+
+Sebesi (Server)
+```
+Fa0
+IPv4 Address: 10.69.66.3
+Gateway: 10.69.66.1
+Subnet Mask: 255.255.255.0
+```
+
+#### A4
+SUMATERA (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.196.1
+Subnet Mask: 255.255.255.224
+```
+
+SUMATERA-UTARA (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.196.2
+Subnet Mask: 255.255.255.224
+```
+
+Samosir (Client)
+```
+Fa0
+IPv4 Address: 10.69.196.3
+Gateway: 10.69.196.1
+Subnet Mask: 255.255.255.224
+```
+
+Sibandang (Client)
+```
+Fa0
+IPv4 Address: 10.69.196.4
+Gateway: 10.69.196.1
+Subnet Mask: 255.255.255.224
+```
+
+#### A5
+SUMATERA-UTARA (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.65.1
+Subnet Mask: 255.255.255.252
+```
+
+ACEH (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.65.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A6
+ACEH (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.64.1
+Subnet Mask: 255.255.255.128
+```
+
+Berawan-Tampu (Client)
+```
+Fa0
+IPv4 Address: 10.69.64.2
+Gateway: 10.69.64.1
+Subnet Mask: 255.255.255.128
+```
+
+Starland (Client)
+```
+Fa0
+IPv4 Address: 10.69.64.3
+Gateway: 10.69.64.1
+Subnet Mask: 255.255.255.128
+```
+
+Enang-Enang (Client)
+```
+Fa0
+IPv4 Address: 10.69.64.4
+Gateway: 10.69.64.1
+Subnet Mask: 255.255.255.128
+```
+
+#### A7
+ACEH (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.64.129
+Subnet Mask: 255.255.255.128
+```
+
+Lambaro (Client)
+```
+Fa0
+IPv4 Address: 10.69.64.130
+Gateway: 10.69.64.129
+Subnet Mask: 255.255.255.128
+```
+
+Sabang (Client)
+```
+Fa0
+IPv4 Address: 10.69.64.131
+Gateway: 10.69.64.129
+Subnet Mask: 255.255.255.128
+```
+
+#### A8
+JAWA (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.194.1
+Subnet Mask: 255.255.255.252
+```
+
+KALIMANTAN (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.194.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A9
+KALIMANTAN (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.193.1
+Subnet Mask: 255.255.255.252
+```
+
+KALIMANTAN-UTARA (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.193.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A10
+KALIMANTAN-UTARA (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.192.1
+Subnet Mask: 255.255.255.0
+```
+
+Selimau (Client)
+```
+Fa0
+IPv4 Address: 10.69.192.2
+Gateway: 10.69.192.1
+Subnet Mask: 255.255.255.0
+```
+
+#### A11
+KALIMANTAN-UTARA (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.34.1
+Subnet Mask: 255.255.255.252
+```
+
+KALIMANTAN-TIMUR (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.34.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A12
+KALIMANTAN-TIMUR (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.32.1
+Subnet Mask: 255.255.254.0
+```
+
+Lamaru (Client)
+```
+Fa0
+IPv4 Address: 10.69.32.2
+Gateway: 10.69.32.1
+Subnet Mask: 255.255.254.0
+```
+
+Bangkirai (Server)
+```
+Fa0
+IPv4 Address: 10.69.32.3
+Gateway: 10.69.32.1
+Subnet Mask: 255.255.254.0
+```
+
+#### A13
+KALIMANTAN-TIMUR (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.16.1
+Subnet Mask: 255.255.255.252
+```
+
+KALIMANTAN-SELATAN (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.16.2
+Gateway: 10.69.16.1
+Subnet Mask: 255.255.255.252
+```
+
+#### A14
+KALIMANTAN-SELATAN (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.8.1
+Subnet Mask: 255.255.255.224
+```
+
+Angsana (Client)
+```
+Fa0
+IPv4 Address: 10.69.8.2
+Gateway: 10.69.8.1
+Subnet Mask: 255.255.255.224
+```
+
+#### A15
+KALIMANTAN-SELATAN (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.0.1
+Subnet Mask: 255.255.248.0
+```
+
+Batakan (Client)
+```
+Fa0
+IPv4 Address: 10.69.0.2
+Gateway: 10.69.0.1
+Subnet Mask: 255.255.248.0
+```
+
+Takisung (Client)
+```
+Fa0
+IPv4 Address: 10.69.0.3
+Gateway: 10.69.0.1
+Subnet Mask: 255.255.248.0
+```
+
+Bajuin (Client)
+```
+Fa0
+IPv4 Address: 10.69.0.4
+Gateway: 10.69.0.1
+Subnet Mask: 255.255.248.0
+```
+
+#### A16
+JAWA (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.144.1
+Subnet Mask: 255.255.255.252
+```
+
+SULAWESI (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.144.2
+Subnet Mask: 255.255.255.252
+```
+
+#### A17
+SULAWESI (Router)
+```
+Fa1/0
+IPv4 Address: 10.69.160.65
+Subnet Mask: 255.255.255.248
+```
+
+BELAWA (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.160.66
+Subnet Mask: 255.255.255.248
+```
+
+MAKASAR (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.160.67
+Subnet Mask: 255.255.255.248
+```
+
+#### A18
+MAKASAR (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.160.129
+Subnet Mask: 255.255.255.248
+```
+
+Galesong (Server)
+```
+Fa0
+IPv4 Address: 10.69.160.130
+Gateway: 10.69.160.129
+Subnet Mask: 255.255.255.248
+```
+
+Topejawa-Takalar (Server)
+```
+Fa0
+IPv4 Address: 10.69.160.131
+Gateway: 10.69.160.129
+Subnet Mask: 255.255.255.248
+```
+
+#### A19
+MAKASAR (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.160.1
+Subnet Mask: 255.255.255.192
+```
+
+Madini (Client)
+```
+Fa0
+IPv4 Address: 10.69.160.2
+Gateway: 10.69.160.1
+Subnet Mask: 255.255.255.192
+```
+
+Baru (Client)
+```
+Fa0
+IPv4 Address: 10.69.160.3
+Gateway: 10.69.160.1
+Subnet Mask: 255.255.255.192
+```
+
+#### A20
+SULAWESI (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.136.1
+Subnet Mask: 255.255.255.128
+```
+
+PC-Gorontalo (Client)
+```
+Fa0
+IPv4 Address: 10.69.136.2
+Gateway: 10.69.136.1
+Subnet Mask: 255.255.255.128
+```
+
+PC-Marisa (Client)
+```
+Fa0
+IPv4 Address: 10.69.136.3
+Gateway: 10.69.136.1
+Subnet Mask: 255.255.255.128
+```
+
+MALUKU-UTARA (Router)
+```
+Fa0/0
+IPv4 Address: 10.69.136.4
+Subnet Mask: 255.255.255.128
+```
+
+#### A21
+MALUKU-UTARA (Router)
+```
+Fa0/1
+IPv4 Address: 10.69.128.1
+Subnet Mask: 255.255.248.0
+```
+
+Tobelo (Client)
+```
+Fa0
+IPv4 Address: 10.69.128.2
+Gateway: 10.69.128.1
+Subnet Mask: 255.255.248.0
+```
+
+Ternate (Client)
+```
+Fa0
+IPv4 Address: 10.69.128.3
+Gateway: 10.69.128.1
+Subnet Mask: 255.255.248.0
+```
+
+Morotai (Server)
+```
+Fa0/0
+IPv4 Address: 10.69.128.4
+Gateway: 10.69.128.1
+Subnet Mask: 255.255.248.0
+```
+
+### Routing
+#### A1
+ACEH (Ke JAWA A1)
+```
+Network: 10.69.196.32
+Netmask: 255.255.255.252
+Next Hop: 10.69.65.1
+```
+
+#### A2 & A3
+SUMATERA
+```
+Network: 10.69.66.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.67.2
+```
+
+LAMPUNG
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.67.1
+```
+
+ACEH (Ke LAMPUNG A2)
+```
+Network: 10.69.67.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.65.1
+```
+
+ACEH (Ke LAMPUNG A3)
+```
+Network: 10.69.66.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.65.1
+```
+
+SUMATERA-UTARA (Ke LAMPUNG A3)
+```
+Network: 10.69.66.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.196.1
+```
+
+JAWA
+```
+Network: 10.69.66.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.196.34
+```
+
+#### A4 & A5
+JAWA
+```
+Network: 10.69.196.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.196.34
+```
+
+SUMATERA
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.196.33
+```
+
+SUMATERA-UTARA (Ke LAMPUNG A2)
+```
+Network: 10.69.67.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.196.1
+```
+
+SUMATERA-UTARA (Ke JAWA A1)
+```
+Network: 10.69.196.32
+Netmask: 255.255.255.252
+Next Hop: 10.69.196.1
+```
+
+ACEH (Ke SUMATERA A4)
+```
+Network: 10.69.196.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.65.1
+```
+
+SUMATERA (Ke ACEH A5)
+```
+Network: 10.69.65.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.196.2
+```
+
+LAMPUNG (Ke ACEH A5)
+```
+Network: 10.69.65.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.67.1
+```
+
+JAWA (Ke ACEH A5)
+```
+Network: 10.69.65.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.196.34
+```
+
+#### A6
+SUMATERA-UTARA
+```
+Network: 10.69.64.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.65.2
+```
+
+ACEH
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.65.1
+```
+
+SUMATERA (Ke ACEH A6)
+```
+Network: 10.69.64.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.196.2
+```
+
+LAMPUNG (Ke ACEH A6)
+```
+Network: 10.69.64.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.67.1
+```
+
+JAWA (Ke ACEH A6)
+```
+Network: 10.69.64.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.196.34
+```
+
+#### A7
+SUMATERA-UTARA
+```
+Network: 10.69.64.128
+Netmask: 255.255.255.224
+Next Hop: 10.69.65.2
+```
+
+ACEH
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.65.1
+```
+
+SUMATERA (Ke ACEH A7)
+```
+Network: 10.69.64.128
+Netmask: 255.255.255.224
+Next Hop: 10.69.196.2
+```
+
+JAWA (Ke ACEH A7)
+```
+Network: 10.69.64.128
+Netmask: 255.255.255.224
+Next Hop: 10.69.196.34
+```
+
+#### A9 & A10
+KALIMANTAN
+```
+Network: 10.69.192.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.193.2
+```
+
+KALIMANTAN (Ke JAWA)
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.194.1
+```
+
+KALIMANTAN (Ke KALIMANTAN-TIMUR A11)
+```
+Network: 10.69.192.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.193.2
+```
+
+KALIMANTAN (Ke KALIMANTAN-SELATAN A13)
+```
+Network: 10.69.16.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.193.2
+```
+
+KALIMANTAN (Ke KALIMANTAN-TIMUR A12)
+```
+Network: 10.69.32.0
+Netmask: 255.255.254.0
+Next Hop: 10.69.193.2
+```
+
+KALIMANTAN-UTARA (Ke JAWA via KALIMANTAN)
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.193.1
+```
+
+KALIMANTAN-UTARA (Ke KALIMANTAN-SELATAN A14)
+```
+Network: 10.69.8.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.34.2
+```
+
+KALIMANTAN-UTARA (Ke KALIMANTAN-SELATAN A15)
+```
+Network: 10.69.0.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.34.2
+```
+
+KALIMANTAN-UTARA (Ke KALIMANTAN-SELATAN A13)
+```
+Network: 10.69.16.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.34.2
+```
+
+JAWA (Ke KALIMANTAN-UTARA A10)
+```
+Network: 10.69.192.0
+Netmask: 255.255.255.0
+Next Hop: 10.69.194.2
+```
+
+#### A11 & A12
+KALIMANTAN-UTARA
+```
+Network: 10.69.32.0
+Netmask: 255.255.254.0
+Next Hop: 10.69.34.2
+```
+
+KALIMANTAN-TIMUR
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.34.1
+```
+
+JAWA (Ke KALIMANTAN-TIMUR A12)
+```
+Network: 10.69.32.0
+Netmask: 255.255.254.0
+Next Hop: 10.69.194.2
+```
+
+JAWA (Ke KALIMANTAN-TIMUR A11)
+```
+Network: 10.69.34.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.194.2
+```
+
+#### A13
+JAWA (Ke KALIMANTAN-SELATAN A13)
+```
+Network: 10.69.16.0
+Netmask: 255.255.255.252
+Next Hop: 10.69.194.2
+```
+
+#### A14
+KALIMANTAN-TIMUR
+```
+Network: 10.69.8.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.16.2
+```
+
+KALIMANTAN-SELATAN
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.16.1
+```
+
+KALIMANTAN (Ke KALIMANTAN-SELATAN A14)
+```
+Network: 10.69.8.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.193.2
+```
+
+JAWA (Ke KALIMANTAN-SELATAN A14)
+```
+Network: 10.69.8.0
+Netmask: 255.255.255.224
+Next Hop: 10.69.194.2
+```
+
+#### A15
+KALIMANTAN-TIMUR
+```
+Network: 10.69.0.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.16.2
+```
+
+KALIMANTAN-SELATAN
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.16.1
+```
+
+KALIMANTAN (Ke KALIMANTAN-SELATAN A15)
+```
+Network: 10.69.0.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.193.2
+```
+
+JAWA (Ke KALIMANTAN-SELATAN A15)
+```
+Network: 10.69.0.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.194.2
+```
+
+#### A17
+JAWA (Ke SULAWESI A17)
+```
+Network: 10.69.160.64
+Netmask: 255.255.255.248
+Next Hop: 10.69.144.2
+```
+
+#### A18
+SULAWESI
+```
+Network: 10.69.160.128
+Netmask: 255.255.255.248
+Next Hop: 10.69.160.67
+```
+
+MAKASAR
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.160.65
+```
+
+JAWA (Ke MAKASAR A18)
+```
+Network: 10.69.160.128
+Netmask: 255.255.255.248
+Next Hop: 10.69.144.2
+```
+
+#### A19
+MAKASAR
+```
+Network: 10.69.160.0
+Netmask: 255.255.255.192
+Next Hop: 10.69.160.66
+```
+
+BELAWA
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.160.67
+```
+
+JAWA (Ke BELAWA A19)
+```
+Network: 10.69.160.0
+Netmask: 255.255.255.192
+Next Hop: 10.69.144.2
+```
+
+#### A20
+BELAWA
+```
+Network: 10.69.136.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.160.65
+```
+
+SULAWESI
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.160.66
+```
+
+JAWA (Ke SULAWESI A20)
+```
+Network: 10.69.136.0
+Netmask: 255.255.255.128
+Next Hop: 10.69.144.1
+```
+
+SULAWESI (Ke JAWA A16)
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.144.1
+```
+
+#### A21
+SULAWESI
+```
+Network: 10.69.128.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.136.4
+```
+
+MALUKU-UTARA
+```
+Network: 0.0.0.0
+Netmask: 0.0.0.0
+Next Hop: 10.69.136.1
+```
+
+JAWA (Ke MALUKU-UTARA A21)
+```
+Network: 10.69.128.0
+Netmask: 255.255.248.0
+Next Hop: 10.69.144.2
+```
 
 ### Testing
+#### Client-Client
+![image](/images/client-client.png)
+
+#### Router-Client (vice versa)
+![image](/images/router-client.png)
+
+#### Router-Router
+![image](/images/router-router.png)
+
+#### Server-Client (vice versa)
+![image](/images/server-client.png)
+
+#### Server-Server
+![image](/images/server-server.png)
