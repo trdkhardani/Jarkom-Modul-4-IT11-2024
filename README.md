@@ -724,7 +724,7 @@ Berikut merupakan hasil `penggabungan` subnet yang telah kami lakukan
 ### Tree
 Berikut merupakan hasil `pemecahan` subnet besar yang dibentuk menjadi `jaringan` yang lebih kecil
 
-![image](/images/tree-cidr.png)
+![image](/images/CIDR%20Tree.png)
 
 ### Pembagian IP
 Berikut adalah hasil dari pembagian `IP` yang telah kami peroleh berdasarkan hasil `pemecahan` sebelumnya
